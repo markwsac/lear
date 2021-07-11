@@ -122,7 +122,6 @@ $for(css)$
 <link rel="stylesheet" href="$css$" $if(html5)$$else$type="text/css" $endif$/>
 $endfor$
 
-<!-- Custom CSS and JS -->
 <style>
 
   .topicsContainer {display: none;}
@@ -141,14 +140,172 @@ $endfor$
 
   .dropdown-menu {min-width : 175px !important;}
 
+   #homenav .navbar-default .navbar-brand,
+  #homenav .navbar-default {
+    background-color : #100a1a !important;
+    color: #FFF !important;
+    border:none !important;
+  }
+
+  #homenav .navbar-default .navbar-brand .navbar-nav>li>a,
+  #homenav .navbar-default .navbar-nav>li>a,
+  #homenav .navbar-default .navbar-nav>li>a:focus, #homenav .navbar-default .navbar-nav>li>a:hover {
+    color: #FFF !important;
   }
 
 </style>
+<script type="text/javascript" src="js/warpspeed.min.js"></script>
 
 </head>
 
-<body>
+<!-- Disable Cut, copy, Paste and Right Click -->
+<body oncopy="return false;" oncut="return false;" onpaste="return false;" oncontextmenu="return false;">
 
+<!-- Loader -->
+  <div id='divLoading'></div>
+  <script>$$('div#divLoading').addClass('show');</script>
+
+<!-- JS & CSS -->
+
+  <link type='text/css' rel='stylesheet' href='fireblaze/style.css'/>
+  <script src='firebase/js/firebase-app.js'></script>
+  <script src='firebase/js/firebase-auth.js'></script>
+  <script src='firebase/js/firebase-analytics.js'></script>
+  <script src='fireblaze/core-utils.js'></script>
+  <script src='fireblaze/core.js'></script>
+  <script src='fireblaze/email-password.js'></script>
+  <script src='fireblaze/email-link.js'></script>
+  <script src='fireblaze/social.js'></script>
+  <script src='fireblaze/oauth.js'></script>
+  <script src='fireblaze/ui-utils.js'></script>
+  <script src='firebase-ui/js/firebase-ui.js'></script>
+  <link type='text/css' rel='stylesheet' href='firebase-ui/css/firebase-ui.css'/>
+  <script src='js/countdown.js'></script>
+  <link href='css/countdown.css' rel='stylesheet'/>
+
+<!-- Nav Menu -->
+<div id="homenav">
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav"></ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="javascript:window.location.href = window.location.href.split('#')[0]"><i class="fas fa-home mr-2"></i>Home</a>
+        </li>
+            </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+<!-- Canvas -->
+<div style="position:fixed; z-index:-999; top:0; left:0; width:100%; height:100%;">
+<canvas id="canvas2" style="width:100%; height:100%;"></canvas>
+<script>
+new WarpSpeed("canvas2",
+{density:2,backgroundColor:"hsl(263,45%,7%)",starColor:"#FFFFFF",speed:1.2}
+);</script>
+</div>
+
+<!-- Login Screen -->
+<!-- <div id="loginscreen" style="margin-top: 70px;">
+<div style="display: flex; justify-content: center;">
+  <h2 style="color: #eee; font-weight: 600;padding: 0 15px; width: fit-content;">Written Test</h2>
+</div>
+<div class="modal-dialog modal-sm cascading-modal modal-avatar margin-top0">
+  <div class="modal-content">
+    <div class="modal-header">
+      <img src="images/avatar.jpg" class="rounded-circle img-responsive" alt="Avator photo"/>
+    </div>
+    <div id="fireblaze-signin-ui"></div>
+  </div>
+</div>
+</div> -->
+
+<!-- Timeline -->
+
+<!-- <section id=timeline>
+	<h1>A Flexbox Timeline</h1>
+	<p class="leader">All cards must be the same height and width for space calculations on large screens.</p>
+	<div class="demo-card-wrapper">
+		<div class="demo-card demo-card--step1">
+			<div class="head">
+				<div class="number-box">
+					<span>01</span>
+				</div>
+				<h2>Technology</h2>
+			</div>
+			<div class="body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+				<img src="images/img1.png" alt="Graphic">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step2">
+			<div class="head">
+				<div class="number-box">
+					<span>02</span>
+				</div>
+				<h2>Confidence</h2>
+			</div>
+			<div class="body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+	<img src="https://futurecoder.io/static_backend/img/features/layout.png" alt="Graphic">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step3">
+			<div class="head">
+				<div class="number-box">
+					<span>03</span>
+				</div>
+				<h2>Adaptation</h2>
+			</div>
+			<div class="body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step4">
+			<div class="head">
+				<div class="number-box">
+					<span>04</span>
+				</div>
+				<h2>Consistency</h2>
+			</div>
+			<div class="body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+
+		<div class="demo-card demo-card--step5">
+			<div class="head">
+				<div class="number-box">
+					<span>05</span>
+				</div>
+				<h2>Conversion</h2>
+			</div>
+			<div class="body">
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta reiciendis deserunt doloribus consequatur, laudantium odio dolorum laboriosam.</p>
+				<img src="http://placehold.it/1000x500" alt="Graphic">
+			</div>
+		</div>
+
+	</div>
+</section>
+ -->
+
+<!-- Custom CSS and JS -->
 <style>
 
   body {font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif,Apple Color Emoji,Segoe UI Emoji,Segoe UI Symbol,Noto Color Emoji; background: #f0f7fa; color: #172a3a;
@@ -181,7 +338,7 @@ pre, code {
 }
 
 ol, ul {
-  line-height: 1.5em;
+  line-height: 1.75em;
 }
 
 
@@ -269,6 +426,11 @@ $$(document).ready(function() {
       $$('.topics .section.level2').css('display', 'none');
       $$('.topics .section.level2.current').css('display', 'block');
       $$('.container-fluid').css('margin-top', '50px');
+      $$('#homenav').css('display', 'none');
+      $$('#loginscreen').css('display', 'none');
+      $$('#canvas2').css('display', 'none');
+      $$('#timeline').css('display', 'none');
+      $$("<style>#divLoading.show:after { border: 6px solid #0c8a6c !important; border-color: #0c8a6c transparent #0c8a6c transparent !important;}</style>" ).appendTo("head");
       clearInterval(CONTROL_INTERVAL41);
 }}, 200);
 
@@ -276,21 +438,360 @@ $$(document).ready(function() {
 
 </script>
 
-  <link rel='stylesheet' href='css-loaders/css/fallback.css'/>
-  <link rel='stylesheet' href='css-loaders/css/load1.css'/>
-  <link type='text/css' rel='stylesheet' href='fireblaze/style.css'/>
-  <script src='firebase/js/firebase-app.js'></script>
-  <script src='firebase/js/firebase-auth.js'></script>
-  <script src='firebase/js/firebase-analytics.js'></script>
-  <script src='fireblaze/core-utils.js'></script>
-  <script src='fireblaze/core.js'></script>
-  <script src='fireblaze/email-password.js'></script>
-  <script src='fireblaze/email-link.js'></script>
-  <script src='fireblaze/social.js'></script>
-  <script src='fireblaze/oauth.js'></script>
-  <script src='fireblaze/ui-utils.js'></script>
-  <script src='firebase-ui/js/firebase-ui.js'></script>
-  <link type='text/css' rel='stylesheet' href='firebase-ui/css/firebase-ui.css'/>
+
+<style type='text/css'>
+
+.firebaseui-card-footer.firebaseui-provider-sign-in-footer {display : none;}
+svg #a_graph0 polygon{fill: #f0f7fa;}
+
+.modal-header:after, .modal-header:before {content: none !important;}
+.modal-header .close {margin-top: -20px !important; font-size: 24px; color: #0468d6; opacity: 1;}
+.modal-header {border-color: #1d89ff; border-radius: 2px; background: transparent !important;box-shadow: 0 2px 5px 0 rgb(0 0 0 / 18%), 0 1px 5px 0 rgb(0 0 0 / 15%);}
+
+.modal-title {color:#0468d6;}
+.modal-body label {color: #337ab7; font-size :16px; font-weight : 500;}
+.modal-body .form-control {border : 1px solid #b7d2f1;}
+.modal-body .btn-default {border : 1px solid #b7d2f1;}
+
+.bootstrap-select.is-invalid .dropdown-toggle, .error .bootstrap-select .dropdown-toggle, .has-error .bootstrap-select .dropdown-toggle, .was-validated .bootstrap-select select:invalid+.dropdown-toggle {border-color : #b7d2f1 !important;
+}
+
+.has-error .checkbox, .has-error .checkbox-inline, .has-error .control-label, .has-error .radio, .has-error .radio-inline, .has-error.checkbox label, .has-error.checkbox-inline label, .has-error.radio label, .has-error.radio-inline label {color: #337ab7;}
+
+.has-error .help-block {color: #ff5964;}
+
+.modal-dialog.cascading-modal.modal-avatar .modal-header {
+    border-bottom : 1px solid #42434a !important;
+    border-radius: 0px;
+    background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.15),rgba(255,255,255,0.15) 70% );
+-webkit-box-shadow: 0px 0px 37px 8px rgba(0,0,0,0.23);
+-moz-box-shadow: 0px 0px 37px 8px rgba(0,0,0,0.23);
+box-shadow: none;
+}
+
+.modal-dialog.cascading-modal.modal-avatar .modal-header img {
+width: 130px; margin-left: auto; margin-right: auto;}
+
+.modal-dialog.cascading-modal.modal-avatar .modal-header img, .z-depth-2 {
+-webkit-box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);
+box-shadow: 0 8px 17px 0 rgb(0 0 0 / 20%), 0 6px 20px 0 rgb(0 0 0 / 19%);}
+
+.modal-dialog.cascading-modal.modal-avatar .modal-content {
+background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.15),rgba(255,255,255,0.15) 70% );
+-webkit-box-shadow: 0px 0px 37px 8px rgba(0,0,0,0.23);
+-moz-box-shadow: 0px 0px 37px 8px rgba(0,0,0,0.23);
+box-shadow: 0px 0px 37px 8px rgba(0,0,0,0.23);
+border: 1px solid rgba(0,0,0,0.15);
+}
+
+
+.rounded-circle {border-radius: 50%;}
+
+.mdl-button--raised {
+  box-shadow: 0 2px 4px 2px rgb(0 0 0 / 14%),
+  0 3px 4px 0 rgb(0 0 0 / 20%), 0 4px 4px 0 rgb(0 0 0 / 12%) !important;
+}
+
+.btn-dwnld {
+    background-color: #d40000 !important;
+    border: 1px solid #999 !important;
+    color: #fff !important;
+    font-weight: 600;
+}
+
+.img-output {
+  -webkit-box-shadow: 1px 1px 6px #E0E0E0;
+  -moz-box-shadow: 1px 1px 6px #E0E0E0;
+  box-shadow: 1px 1px 6px #E0E0E0;
+  display: inline-block;
+}
+
+
+
+@media (min-width: 1000px) {
+    #timeline .demo-card:nth-child(odd) .head::after, #timeline .demo-card:nth-child(even) .head::after {
+        position: absolute;
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 15px solid transparent;
+        border-bottom: 15px solid transparent;
+    }
+    #timeline .demo-card:nth-child(odd) .head::before, #timeline .demo-card:nth-child(even) .head::before {
+        position: absolute;
+        content: "";
+        width: 9px;
+        height: 9px;
+        background-color: #bdbdbd;
+        border-radius: 9px;
+        box-shadow: 0px 0px 2px 8px #f7f7f7;
+    }
+}
+
+/* Some Cool Stuff */
+.demo-card:nth-child(1) {
+    order: 1;
+}
+
+.demo-card:nth-child(2) {
+    order: 4;
+}
+
+.demo-card:nth-child(3) {
+    order: 2;
+}
+
+.demo-card:nth-child(4) {
+    order: 5;
+}
+
+.demo-card:nth-child(5) {
+    order: 3;
+}
+
+.demo-card:nth-child(6) {
+    order: 6;
+}
+
+
+#timeline {
+    padding: 25px 0;
+    background: transparent;
+}
+
+#timeline h1 {
+    text-align: center;
+    font-size: 3rem;
+    font-weight: 200;
+    margin-bottom: 20px;
+    color: white;
+}
+
+#timeline p.leader {
+    text-align: center;
+    max-width: 90%;
+    margin: auto;
+    margin-bottom: 45px;
+    color: white;
+}
+
+#timeline .demo-card-wrapper {
+    position: relative;
+    margin: auto;
+}
+
+@media (min-width: 1000px) {
+    #timeline .demo-card-wrapper {
+        display: flex;
+        flex-flow: column wrap;
+        width: 1170px;
+        height: 950px;
+        margin: 0 auto;
+    }
+}
+
+#timeline .demo-card-wrapper::after {
+    z-index: 1;
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    height: 90%;
+    border-left: 1px solid rgba(191, 191, 191, 0.4);
+}
+
+@media (min-width: 1000px) {
+    #timeline .demo-card-wrapper::after {
+        border-left: 1px solid #bdbdbd;
+    }
+}
+
+#timeline .demo-card {
+    position: relative;
+    display: block;
+    margin: 10px auto 80px;
+    max-width: 94%;
+    z-index: 2;
+}
+
+@media (min-width: 480px) {
+    #timeline .demo-card {
+        max-width: 60%;
+        box-shadow: 0px 1px 22px 4px rgba(0, 0, 0, 0.07);
+    }
+}
+
+@media (min-width: 720px) {
+    #timeline .demo-card {
+        max-width: 40%;
+    }
+}
+
+@media (min-width: 1000px) {
+    #timeline .demo-card {
+        max-width: 450px;
+        height: 220px;
+        margin: 90px;
+        margin-top: 45px;
+        margin-bottom: 45px;
+    }
+    #timeline .demo-card:nth-child(odd) {
+        margin-right: 45px;
+    }
+    #timeline .demo-card:nth-child(odd) .head::after {
+        border-left-width: 15px;
+        border-left-style: solid;
+        left: 100%;
+    }
+    #timeline .demo-card:nth-child(odd) .head::before {
+        left: 491.5px;
+    }
+    #timeline .demo-card:nth-child(even) {
+        margin-left: 45px;
+    }
+    #timeline .demo-card:nth-child(even) .head::after {
+        border-right-width: 15px;
+        border-right-style: solid;
+        right: 100%;
+    }
+    #timeline .demo-card:nth-child(even) .head::before {
+        right: 489.5px;
+    }
+    #timeline .demo-card:nth-child(2) {
+        margin-top: 250px;
+    }
+}
+
+#timeline .demo-card .head {
+    position: relative;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: 400;
+}
+
+#timeline .demo-card .head .number-box {
+    display: inline;
+    float: left;
+    margin: 15px;
+    padding: 10px;
+    font-size: 35px;
+    line-height: 35px;
+    font-weight: 600;
+     background: rgba(0, 0, 0, 0.17);
+}
+
+#timeline .demo-card .head h2 {
+    text-transform: uppercase;
+    color: white;
+    font-size: 1.3em;
+    font-weight: inherit;
+    letter-spacing: 2px;
+    margin: 0;
+    padding-bottom: 6px;
+    line-height: 1em;
+}
+
+@media (min-width: 480px) {
+    #timeline .demo-card .head h2 {
+        line-height: 1.2em;
+    }
+}
+
+#timeline .demo-card .head h2 span {
+    display: block;
+    font-size: 0.6rem;
+    margin: 0;
+}
+
+@media (min-width: 480px) {
+    #timeline .demo-card .head h2 span {
+        font-size: 0.8rem;
+    }
+}
+
+#timeline .demo-card .body {
+    background: #fff;
+    border: 1px solid rgba(191, 191, 191, 0.4);
+    border-top: 0;
+    padding: 15px;
+}
+
+@media (min-width: 1000px) {
+    #timeline .demo-card .body {
+        height: 85px;
+    }
+}
+
+#timeline .demo-card .body p {
+    color: #444;
+    font-size: 14px;
+    line-height: 18px;
+    margin-bottom: 15px;
+}
+
+#timeline .demo-card .body img {
+    display: block;
+    width: 100%;
+}
+
+#timeline .demo-card {
+    background: -webkit-linear-gradient(bottom, rgba(0,0,0,0.15),rgba(255,255,255,0.15) 70% );
+}
+
+#timeline .demo-card--step1 .head::after {
+    border-color: #4449;
+}
+
+
+
+#timeline .demo-card--step2 .head::after {
+    border-color: #4449;
+}
+
+
+
+#timeline .demo-card--step3 .head::after {
+    border-color: #4449;
+}
+
+#timeline .demo-card--step4 .head::after {
+    border-color: #4449;
+}
+
+#timeline .demo-card--step5 .head::after {
+    border-color: #4449;
+}
+
+@media only screen
+  and (min-device-width: 768px)
+  and (max-device-width: 1024px) {
+
+    #timeline .demo-card-wrapper {
+        display: flex;
+        flex-flow: column wrap;
+        width: 960px;
+        margin: 0 auto;
+    }
+
+    #timeline .demo-card {
+        max-width: 350px;
+    }
+
+    #timeline .demo-card:nth-child(odd) .head::before {
+        left: 385.5px;
+    }
+
+    #timeline .demo-card:nth-child(even) .head::before {
+        right: 394.5px;
+    }
+
+  }
+
+
+</style>
+
 
 
 $for(include-before)$
@@ -404,7 +905,6 @@ $$(document).ready(function () {
 });
 </script>
 $endif$
-
 </body>
 
 </html>

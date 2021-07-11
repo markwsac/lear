@@ -9,10 +9,8 @@
 ^tools$
 ^issues$
 ^.*/skeleton/skeleton.html
-
 ^\.travis\.yml$
 ^\.atom
-
 rsconnect/
 ^\.github/
 ^inst/tutorials/.*\.html$
@@ -25,3 +23,4 @@ rsconnect/
 ^Meta$
 ^\.github
 ^data-raw$
+^\.secrets$
